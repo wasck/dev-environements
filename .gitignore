@@ -1,5 +1,7 @@
 ### Custom ###
-jenkins/jenkins_home/*
+jenkins/jenkins_home/
+jenkins-blue/jenkins_home/
+jenkins-blue/jenkins_docker_certs/
 !jenkins/jenkins_home/README.md
 
 ### Code ###
