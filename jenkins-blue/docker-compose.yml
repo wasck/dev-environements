@@ -1,0 +1,33 @@
+version: "3.7"
+
+services:
+
+  dind:
+    image: docker:dind
+    container_name: local_jenkins_dind_service
+    environment: 
+      - DOCKER_TLS_CERTDIR=/certs
+    ports:
+      - 2376:2376
+    networks:
+      - jenkins
+    volumes:
+      - ./jenkins_home:/var/jenkins_home
+      - ./jenkins_docker_certs:/certs/client
+
+  jenkins:
+    image: jenkinsci/blueocean
+    container_name: local_jenkins_blue_service
+    depends_on: 
+      - dind
+    ports:
+      - 8090:8080
+      - 50000:50000
+    networks:
+      - jenkins
+    volumes:
+      - ./jenkins_home:/var/jenkins_home
+      - ./jenkins_docker_certs:/certs/client:ro
+
+networks:
+  jenkins:
