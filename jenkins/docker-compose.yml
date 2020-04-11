@@ -8,3 +8,4 @@ services:
       - 8090:8080
     volumes:
       - ./jenkins_home:/var/jenkins_home
+      - $HOMEDRIVE$HOMEPATH:/home
