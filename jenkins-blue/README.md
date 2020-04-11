@@ -4,6 +4,14 @@
   ```Bash
   docker-compose -f jenkins-blue/docker-compose.yml up -d
   ```
+- Docker Container should running
+  ```Bash
+  docker ps
+  ```
+- Copy admin password from ./jenkins_home/secrets/initialAdminPassword
+- Walk through jenkins setup
+- Open [jenkins](http://localhost:8090)
+- Open [jenkins-blueocean](http://localhost:8090/blue)
 
 ## Shutdown jenkins blueocean service
 - Shutdown from command line
