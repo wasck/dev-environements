@@ -1,1 +1,0 @@
-# Volume for jenkins_home
