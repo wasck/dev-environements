@@ -14,6 +14,7 @@ services:
     volumes:
       - ./jenkins_home:/var/jenkins_home
       - ./jenkins_docker_certs:/certs/client
+      - $HOMEDRIVE$HOMEPATH:/home
 
   jenkins:
     image: jenkinsci/blueocean
@@ -28,6 +29,7 @@ services:
     volumes:
       - ./jenkins_home:/var/jenkins_home
       - ./jenkins_docker_certs:/certs/client:ro
+      - $HOMEDRIVE$HOMEPATH:/home
 
 networks:
   jenkins:
