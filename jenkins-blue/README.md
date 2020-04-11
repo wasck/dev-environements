@@ -24,6 +24,5 @@ docker container rm local_jenkins_service
 Just delete jenkins_home directory
 - with Powershell
   ```Powershell
-  Remove-Item jenkins-blue/jenkins_home -Recurse -Force
-  Remove-Item jenkins-blue/jenkins_docker_certs -Recurse -Force
+  Remove-Item jenkins-blue/jenkins_home -Recurse -Force; Remove-Item jenkins-blue/jenkins_docker_certs -Recurse -Force
   ```

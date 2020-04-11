@@ -1,4 +1,7 @@
 # Scripts to run environments
+## Requirements
+- Install [git](https://git-scm.com/downloads)
+- Install [Docker](https://docs.docker.com/get-docker/)
 
 ## Get project
 - Clone from git
@@ -13,3 +16,4 @@
 ## Environments
 - [Jenkins Blueocean (recommended)](./jenkins-blue/README.md)
 - [Jenkins](./jenkins/README.md)
+  > **Note**: You can't have it both ways! Decide on one
