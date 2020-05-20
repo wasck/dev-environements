@@ -1,0 +1,31 @@
+version: "3.7"
+
+services:
+  nextcloud_db:
+    image: postgres:12-alpine
+    restart: always
+    container_name: nextcloud_db
+    ports:
+      - 5432:5432
+    networks:
+      - nextcloud
+    environment:
+      POSTGRES_DB: nextcloud_db
+      POSTGRES_USER: nextcloud
+      POSTGRES_PASSWORD: nextcloud_password
+
+  nextcloud:
+    image: nextcloud:16-apache
+    container_name: nextcloud
+    restart: always
+    depends_on:
+      - nextcloud_db
+    ports:
+      - 8080:80
+    networks:
+      - nextcloud
+    volumes:
+      - ./html:/var/www/html
+
+networks:
+  nextcloud:
