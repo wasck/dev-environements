@@ -17,3 +17,4 @@
 - [Jenkins Blueocean (recommended)](./jenkins-blue/README.md)
 - [Jenkins](./jenkins/README.md)
   > **Note**: You can't have it both ways! Decide on one
+- [Nextcloud](./nextcloud/README.md)
