@@ -1,4 +1,4 @@
-version: "3.7"
+version: "3.8"
 
 services:
   nextcloud_db:
@@ -10,9 +10,11 @@ services:
     networks:
       - nextcloud
     environment:
-      POSTGRES_DB: nextcloud_db
-      POSTGRES_USER: nextcloud
-      POSTGRES_PASSWORD: nextcloud_password
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      LANG: de_DE.utf8
+    volumes:
+      - postgres:/var/lib/postgresql/data
 
   nextcloud:
     image: nextcloud:16-apache
@@ -21,11 +23,15 @@ services:
     depends_on:
       - nextcloud_db
     ports:
-      - 8080:80
+      - 80:80
     networks:
       - nextcloud
     volumes:
-      - ./html:/var/www/html
+      - html:/var/www/html
 
 networks:
   nextcloud:
+
+volumes:
+  postgres:
+  html:
