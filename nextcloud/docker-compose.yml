@@ -5,6 +5,10 @@ services:
     image: postgres:12-alpine
     restart: always
     container_name: nextcloud_db
+    logging:
+      options:
+        max-file: "4"
+        max-size: "10m"
     ports:
       - 5432:5432
     networks:
@@ -16,12 +20,17 @@ services:
     volumes:
       - postgres:/var/lib/postgresql/data
 
+
   nextcloud:
     image: nextcloud:16-apache
     container_name: nextcloud
     restart: always
     depends_on:
       - nextcloud_db
+    logging:
+      options:
+          max-file: "4"
+          max-size: "10m"
     ports:
       - 80:80
     networks:
